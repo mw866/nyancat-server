@@ -1,52 +1,60 @@
 # Nyancat Telnet Server
 
-Docker Image for a nyancat telnet server with onenetd.
+Docker Image for a [nyancat](https://en.wikipedia.org/wiki/Nyan_Cat) telnet server with onenetd.
+
+![nyancat](https://upload.wikimedia.org/wikipedia/en/e/ed/Nyan_cat_250px_frame.PNG)
 
 
 ## Demo
 
 ```bash
-$ telnet [IP address or hostname]
+$ telnet nyancat.chriswang.tech
 ```
 
+## Use
 
-## Usage
-
-### Telnet Server
+### Start Server
 ```bash
-$ docker run -d --name nyancat-server --restart=always -p 23:23 mw866/nyancat-server
+$ docker run -d --name nyancat-server --restart=always -p 23:23man
 ```
 
-##### To view:
+### View on Client
 ```bash
-$ telnet <localhost or serverhost>
+$ telnet <IP address|serverhost>
 ```
 
+### Quit on Client
 
+```
+telnet> ^]
+telnet> quit
+```
 
-## Dependencies
+## Develop
 
-### [klange/nyancat](https://github.com/klange/nyancat)
-Checkout 「[Nyan Cat Telnet Server](http://nyancat.dakko.us/)」 project homepage for demos.
+### Build
 
-### [offog.org/code/onenetd/](http://offog.org/git/onenetd)
-> By default, 40 connections are allowed at once.
-
-View `onenetd` help document by running `$ docker exec nyancat-server sh -c "onenetd -h"`
-
-
-## Build
 ```bash
-docker build -t nyancat-server . 
+docker build -t nyancat-server .
 ```
 
-### Test locally
+### Test
+
 ```bash
 $ docker run -d  -p 23:23 --name nyancat-local nyancat-server
 $ telnet localhost
 $ docker kill [container_id]
 ```
 
-## Author
-[**Chris Wang**](https://chriswang.tech)  
-Based on [**Wei He**](https://whe.me) 
+## Dependencies
+
+### [klange/nyancat](https://github.com/klange/nyancat)
+Checkout [**Nyan Cat Telnet Server**](http://nyancat.dakko.us/) project homepage for demos.
+
+### [offog.org/code/onenetd/](http://offog.org/git/onenetd)
+> By default, 40 connections are allowed at once.
+
+View `onenetd` help document by running `$ docker exec nyancat-server sh -c "onenetd -h"`
+
+## Acknowldgement 
+Based on [**wei/nyancat-server**](https://github.com/wei/nyancat-server) by [**Wei He**](https://whe.me) 
